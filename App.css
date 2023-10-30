@@ -1,0 +1,101 @@
+body {
+	color: #EEEE;
+	
+}
+
+.Movie-Search > .col {
+	overflow-x: auto;
+  background: #000000;
+  position: relative;
+	transition: transform 0.2s;
+  width: 20%; 
+  max-height: 200px; 
+  object-fit: cover; 
+  margin: 3px;
+}
+
+/* .Movie-Search > .col > .posters:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.Movie-Search > .col > .posters:hover .overlay {
+	opacity: 1;
+} */
+
+/* .Movie-Search > .col > .posters.  .overlay {
+	position: absolute;
+	background: rgba(249, 9, 9, 0.8);
+	width: 50%;
+	transition: 0.5s ease;
+	opacity: 0;
+	bottom: 0;
+	font-size: 10px;
+	padding: 20px;
+	text-align: center;
+} */
+
+.Title{
+	color: #75f4d6;
+	text-align: center;
+	margin-top: 50px;
+	font-family:'copperplate';
+	font-weight: bold;
+}
+
+.Movie-Container > .row {
+	flex-wrap: nowrap;
+	width: 150px;
+  height: 200px; 
+	
+}
+
+.Movie-Container > .row img {
+  width: 100%;
+  height: 100%; 
+}
+
+.posters img {
+  width: 30%; 
+  height: 20%; 
+}
+
+.posters:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.posters:hover .Icon {
+	opacity: 1;
+}
+
+.Icon {
+	position: absolute;
+	background: rgba(253, 251, 251, 0.8);
+	width: 50%;
+	transition: 0.5s ease;
+	opacity: 0;
+	bottom: 0;
+	font-size: 10px;
+	padding: 20px;
+	text-align: center;
+}
+
+.search-bar {
+  background-color: #321E1E;
+  padding:0px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	max-width: 20%;
+	max-height: 200px;
+}
+.search-bar input {
+  width: 100%;
+	border: 1px solid #ccc; 
+	background-color: #75f4d6;
+  border-radius: 20px; 
+  padding: 10px;
+	font-family:'copperplate';
+	font-weight: bold;
+	color: #7A3E3E;
+}
