@@ -5,13 +5,17 @@ body {
 
 .Movie-Search > .col {
 	overflow-x: auto;
-  background: #000000;
+  background:#28212a; ;
   position: relative;
 	transition: transform 0.2s;
   width: 20%; 
   max-height: 200px; 
   object-fit: cover; 
   margin: 3px;
+	color: #75f4d6;
+	font-family:'copperplate';
+	border: 1px solid #321E1E; 
+	border-radius: 20px; 
 }
 
 /* .Movie-Search > .col > .posters:hover {
@@ -47,6 +51,8 @@ body {
 	flex-wrap: nowrap;
 	width: 150px;
   height: 200px; 
+	color: #75f4d6;
+	font-family:'copperplate';
 	
 }
 
@@ -98,4 +104,10 @@ body {
 	font-family:'copperplate';
 	font-weight: bold;
 	color: #7A3E3E;
+}
+
+.containerheader{
+	color: #75f4d6;
+	font-family:'copperplate';
+	font-weight: bold;
 }

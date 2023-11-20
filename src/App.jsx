@@ -14,14 +14,15 @@ const App = () => {
 	const [selectedMovies, setSelectedMovies] = useState([]);
 
 	const searchForMovie = async (searchedMovie) => {
-		const url = `http://www.omdbapi.com/?s=${searchedMovie}&apikey=(Removed for security reasons)`;
+		const url = `https://www.omdbapi.com/?s=${searchedMovie}&apikey=(Removed for security reasons)`;
 		const movieInformation = await fetch(url);
 		const JsonMovieInformation = await movieInformation.json();
-		if (JsonMovieInformation.Search) {SetlistofMovies(JsonMovieInformation.Search);
-		} else {SetlistofMovies([])}
+		if (JsonMovieInformation.Search) {
+			SetlistofMovies(JsonMovieInformation.Search);
+		} else { SetlistofMovies([]) }
 	};
 
-	useEffect(() => {searchForMovie(searchedMovie);},[searchedMovie]);
+	useEffect(() => { searchForMovie(searchedMovie); }, [searchedMovie]);
 
 	const selectMovie = (movie) => {
 		const moviesSelected = [...selectedMovies, movie];
@@ -33,50 +34,50 @@ const App = () => {
 		const moviesSelected = selectedMovies.filter(
 			(selectedmovie) => selectedmovie.imdbID !== movie.imdbID
 		);
-		
+
 		setSelectedMovies(moviesSelected);
 		saveMovie(moviesSelected);
 	};
 
 	const saveMovie = (items) => {
-		const stringofitems=JSON.stringify(items)
+		const stringofitems = JSON.stringify(items)
 		localStorage.setItem('save selected movies', stringofitems);
 	};
 
 	useEffect(() => {
 		const moviesSelected = JSON.parse(localStorage.getItem('save selected movies')
 		);
-		if (moviesSelected) {setSelectedMovies(moviesSelected);}
+		if (moviesSelected) { setSelectedMovies(moviesSelected); }
 	}, []);
 
 
 	return (
-    <>
-		<DragDropContext>
-		<div className='container-fluid Movie-Search'>
-			<h1 className='Title'>Movie TierList</h1>
-      <Tierlist/>
-      <SearchBar searchMovie={searchedMovie} setSearchMovie={setSearchedMovie} />
-			<div className='col'>
-				<MovieContainer
-					movies={listofMovies}
-					handleSelectMovie={selectMovie}
-					AddRmvSelectedMovies={AddMovie}
-				/>
-			</div>
-		</div>
-		<div className="container-fluid Movie-Container">
-          <h3>Movies</h3>
-          <div className='row'>
-            <MovieContainer
-              movies={selectedMovies}
-              handleSelectMovie={removeselectedMovie}
-              AddRmvSelectedMovies={RemoveSelectedMovie}
-            />
-          </div> 
-        </div>
+		<>
+			<DragDropContext>
+				<div className='container-fluid Movie-Search'>
+					<h1 className='Title'>Movies&Shows TierList</h1>
+					<Tierlist />
+					<SearchBar searchMovie={searchedMovie} setSearchMovie={setSearchedMovie} />
+					<div className='col'>
+						<MovieContainer
+							movies={listofMovies}
+							handleSelectMovie={selectMovie}
+							AddRmvSelectedMovies={AddMovie}
+						/>
+					</div>
+				</div>
+				<div className="container-fluid Movie-Container">
+					<h3 className='containerheader'>Movies&Shows</h3>
+					<div className='row'>
+						<MovieContainer
+							movies={selectedMovies}
+							handleSelectMovie={removeselectedMovie}
+							AddRmvSelectedMovies={RemoveSelectedMovie}
+						/>
+					</div>
+				</div>
 			</DragDropContext>
-     </>
+		</>
 	);
 };
 
